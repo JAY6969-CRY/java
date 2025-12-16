@@ -37,7 +37,7 @@ const PasswordGenerator = () => {
         includeSymbols: includeSymbols
       });
 
-      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+      const apiUrl = (process.env.REACT_APP_API_URL || 'http://localhost:8080').replace(/\/$/, '');
       const response = await fetch(`${apiUrl}/api/generate-password?${params}`);
 
       if (!response.ok) {
