@@ -19,12 +19,7 @@ public class PasswordGeneratorService {
     private final SecureRandom secureRandom;
 
     public PasswordGeneratorService() {
-        try {
-            this.secureRandom = SecureRandom.getInstanceStrong();
-        } catch (Exception e) {
-            throw new InvalidPasswordParametersException(
-                "Failed to initialize SecureRandom: " + e.getMessage(), e);
-        }
+        this.secureRandom = new SecureRandom();
     }
 
     public String generatePassword(Integer length, Boolean includeUppercase, Boolean includeLowercase,
